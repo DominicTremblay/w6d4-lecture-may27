@@ -11,16 +11,11 @@ const ChatBar = props => {
     const sendMessage = commitKey && inputType === 'message' && !emptyContent;
     const updateUser = commitKey && inputType === 'username' && !sameUsername;
 
-    const updateFcts = {
-      username: props.updateUser,
-      message: props.sendMessage,
-    };
-
     if (sendMessage) {
       props.sendMessage(content);
       e.target.value = '';
     } else if (updateUser) {
-      props.updateUser(content);
+      // props.updateUser(content);
     }
   };
 
