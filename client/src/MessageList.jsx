@@ -10,6 +10,10 @@ import Notification from './Notification.jsx';
 // Creating an array of components. Each component is customized according
 // to the type of message. Executing getMsgComponent to retrieve the right component
 
+const MessageList = props => {
+  return <main className="messages" />;
+};
+
 // Doing type checking on the props
 MessageList.propTypes = {
   messages: PropTypes.array,

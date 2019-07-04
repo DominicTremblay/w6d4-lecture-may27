@@ -66,6 +66,8 @@ wss.on('connection', wsClient => {
 
   wsClient.on('message', message => {
     const receivedMsg = JSON.parse(message);
+
+    console.log(receivedMsg);
   });
   wsClient.on('close', () => console.log('Client disconnected'));
 });

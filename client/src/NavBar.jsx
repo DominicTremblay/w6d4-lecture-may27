@@ -6,8 +6,6 @@ const NavBar = ({ username }) => {
       <a href="/" className="navbar-brand">
         Chatty
       </a>
-
-      <div>Username: {username}</div>
     </nav>
   );
 };
