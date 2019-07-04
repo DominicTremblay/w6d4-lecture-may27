@@ -19,15 +19,35 @@ const wss = new SocketServer.Server({ server });
 
 const clientList = {};
 
-wss.broadcast = function broadcast(data) {
-  wss.clients.forEach(function each(client) {
+wss.broadcast = data => {
+  wss.clients.forEach(client => {
     if (client.readyState === SocketServer.OPEN) {
       client.send(data);
     }
   });
 };
 
-const getColor = () => '#233555';
+const getColor = colors => {
+  let index = 0;
+
+  return () => {
+    const nextColor = colors[index];
+
+    index = (index + 1) % colors.length;
+    return nextColor;
+  };
+};
+
+const nextColor = getColor([
+  'red',
+  'blue',
+  'orange',
+  'pink',
+  'green',
+  'coral',
+  'royalblue',
+  'salmon',
+]);
 
 const connectClient = (client, nbClients) => {
   const clientInfo = {
